@@ -1,0 +1,5 @@
+!DESAFIO!
+- Crie um programa que simule uma lista(carrinho) de compras. O programa deve receber produtos, quantidade e seus respectivos preços. 
+Ao receber todos os produtos, o programa deve imprimir todos os produtos, quantidade, os preços informados e o preço total dos produtos no carrinho.
+- Resposta: Código é executado via arquivo "Main". Através dele o usuário tem à diposição uma série de produtos cadastrados
+e poderá adicioná-los ou removê-los do seu carrinho como desejado. Ao final, é mostrado para o usuário a quantidade e o preço de cada produto escolhido, bem como o valor total.
