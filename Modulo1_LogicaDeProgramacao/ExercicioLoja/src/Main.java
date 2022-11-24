@@ -18,7 +18,7 @@ public class Main {
         estoque.addProduct(new Product("Smartphone",3,-999.99));
         // It sets both the amount and the price to 0 if the user add a product with a negative amount/unit availability.
         // It also throws a warning message.
-        estoque.addProduct(new Product("Microwave\"",-1,399.99));
+        estoque.addProduct(new Product("Microwave",-1,399.99));
 
         Cart carrinho = new Cart();
         // It is able to handle spaces and lowercase letters
@@ -32,10 +32,14 @@ public class Main {
         carrinho.addProduct(estoque.getProductByName("microwave"),5);
 
         */
+
         Inventory estoque = new Inventory();
-        estoque.addProduct(new Product("Smartphone",3,999.99));
-        estoque.addProduct(new Product("Microwave",1,399.99));
-        estoque.addProduct(new Product("Laptop",5,3859.99));
+        estoque.readFromDB("src\\DB.csv");
+
+//        Inventory estoque = new Inventory();
+//        estoque.addProduct(new Product("Smartphone",3,999.99));
+//        estoque.addProduct(new Product("Microwave",1,399.99));
+//        estoque.addProduct(new Product("Laptop",5,3859.99));
 
         Cart carrinho = new Cart();
 
@@ -43,10 +47,10 @@ public class Main {
         while (option != 3){
              try {
                 System.out.println("What do you like to do?");
-                System.out.println(""" 
+                System.out.println("""
                         1 - Press "1" if you want to add a product to the Cart
                         2 - Press "2" if you want to remove a product from the Cart
-                        3 - Press "3" to check out. 
+                        3 - Press "3" to check out.
                         """.indent(2));
                 option= sc.nextInt();
                 sc.nextLine();

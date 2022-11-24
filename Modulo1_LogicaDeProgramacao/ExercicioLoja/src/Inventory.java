@@ -1,4 +1,9 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class Inventory {
 
@@ -8,6 +13,22 @@ public class Inventory {
     public Inventory(){
         this.inventory= new ArrayList<Product>(0);
         this.inventory.add(DefaultProduct);
+    }
+
+    public void readFromDB(String path){
+        try {
+            List<String> lines = Files.readAllLines(Path.of(path));
+            for (String line:lines) {
+                if (!line.split(",")[0].trim().equalsIgnoreCase("name")){
+                    String[] valuesInLine = line.split(",");
+                    this.inventory.add(new Product(valuesInLine[0].trim(),
+                            Integer.parseInt(valuesInLine[1].trim()),
+                            Double.parseDouble(valuesInLine[2].trim())));
+                }
+            }
+        }catch (IOException e){
+            System.out.println(e.getStackTrace());
+        }
     }
     public Integer size(){
         return this.inventory.size();

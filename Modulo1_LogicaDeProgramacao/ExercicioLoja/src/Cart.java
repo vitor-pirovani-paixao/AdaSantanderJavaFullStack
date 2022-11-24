@@ -13,7 +13,7 @@ public class Cart {
         return this.cart.size();
     }
     public void addProduct(Product product, Integer amountToAdd){
-        if (!product.getName().equals(DefaultProduct.getName())){
+        if (!product.getName().equals(DefaultProduct.getName())&& amountToAdd>0){
             if (product.getAmount()>=amountToAdd){
                 boolean ProductFound=false;
                 for (int i = 0; i < this.cart.size(); i++) {
@@ -44,7 +44,9 @@ public class Cart {
             }else {
                 System.out.printf("We are sorry, but %s is currently out of stock\n", product.getName());
             }
-
+        }else {
+            System.out.println("Number of units to be added must be greater than 0!");
+            System.out.printf("%s was not added into your Cart\n", product.getName());
         }
     }
 
@@ -104,7 +106,7 @@ public class Cart {
         }
         if (this.cart.size() > 1){
             System.out.println("---------------------------------------------------------");
-            System.out.printf("Total: \t\t\t R$ %.2f\n", Total);
+            System.out.printf("Total: R$ %.2f\n", Total);
         }
         System.out.println("---------------------------------------------------------\n");
     }

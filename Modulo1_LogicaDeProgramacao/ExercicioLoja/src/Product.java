@@ -41,8 +41,9 @@ public class Product {
     public void setAmount(Integer amount) {
         if (amount < 0){
             System.out.println("Amount must be greater than zero!");
-            System.out.println("It was automatically set to 1");
+            System.out.println("It was automatically set to 0");
             System.out.println("Please, use the \"setAmount\" method to change it as desired.");
+            this.amount = 0;
         }else{
             this.amount = amount;
         }
@@ -64,7 +65,7 @@ public class Product {
     }
 
     public void printProduct(){
-        System.out.printf("Name: %s \t Units: %d \t Price (R$/Unit): %.2f \n",
+        System.out.printf("Name: %-12s \t Units: %d \t Price (R$/Unit): %.2f \n",
                 this.name, this.amount, this.priceUnit);
     }
 
