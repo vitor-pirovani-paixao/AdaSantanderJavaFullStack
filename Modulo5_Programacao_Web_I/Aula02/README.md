@@ -1,0 +1,2 @@
+Crie um servlet para calculo de IMC, que deve receber os parametros peso e altura. o método que será responsável em receber uma requisição via HTTP deve ser o doGet(). 
+Anexe o link do github e se possível, o código também.
